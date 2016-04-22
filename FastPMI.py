@@ -12,7 +12,7 @@ def regPMI():
     global count
     global s
     url = "http://webtest.experium.ru:90/SupportSrv/SupportSrv.svc/Support/v1/pmi/registration"
-    data = (fake.last_name_female(),fake.first_name_female(), fake_US.safe_email(), fake.password(length=10, special_chars=False, digits=True, upper_case=True, lower_case=True), fake.first_name_male()+u'овна')
+    data = (fake.last_name_female(),fake.first_name_female(), fake_US.safe_email(), 'test123', fake.first_name_male()+u'овна')
     #for t in data:
         #print t
     regdata = {'lastName':data[0],'firstName':data[1],'login':data[2],'confirmPassword':data[3],'password':data[3]}
@@ -38,7 +38,7 @@ def regPMI():
             {"levelCode": 4, "institute": 3, "otherInstituteName": "", "speciality": "специальность",
              "startYearGraduation": 1988, "yearGraduation": 1999}],
                 "graduateInfo": {"englishKnowLevel": 32, "businessArea": 12},
-                "sourceInfo": {"sourceId": 4, "sourceOther": ""}, "id": response1['id']+10}
+                "sourceInfo": {"sourceId": 4, "sourceOther": ""}, "id": response1['id']}
 
     postreq = s.post(url2, headers=headers, json=postdata)
     print (postreq.status_code)
